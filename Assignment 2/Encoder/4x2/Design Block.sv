@@ -9,7 +9,7 @@ always @(*) begin
     inpt[1]: out = 2'b01;
     inpt[2]: out = 2'b10;
     inpt[3]: out = 2'b11;
-    default: out = 2'b00;  // Default value
+    default: out = 2'b00;  // No inputs active
   endcase
 end
 
