@@ -29,3 +29,5 @@ module Decoder (
   always @(*) begin
     out = decode(inpt, enb);
   end
+
+endmodule
