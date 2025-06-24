@@ -8,7 +8,7 @@ module ArrayMultiplier (
     
     genvar i;
     generate
-      for (i = 0; i < 8; i = i + 1) begin : products
+        for (i = 0; i < 8; i++) begin : products
             assign partialproducts[i] = (A & {8{B[i]}}) << i;
         end
     endgenerate
