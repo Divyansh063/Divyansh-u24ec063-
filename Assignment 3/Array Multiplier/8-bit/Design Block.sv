@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module ArrayMultiplier (
     input  [7:0] A, B,
     output [15:0] P
