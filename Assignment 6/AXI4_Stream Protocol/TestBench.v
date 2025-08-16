@@ -9,8 +9,7 @@ module TestBench;
     wire tvalid;
     wire tready;
 
-    // Instantiate Top
-    Top uut (
+    Top top (
         .clk(clk),
         .resetn(resetn),
         .tdata(tdata),
@@ -18,28 +17,23 @@ module TestBench;
         .tready(tready)
     );
 
-    // Clock generation (100 MHz -> 10ns period)
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
     end
 
-    // Reset and simulation flow
     initial begin
         resetn = 0;
         #20;
         resetn = 1;
 
-        // Run for some time
         #200;
         $stop;
     end
 
-    // Monitor signals
     initial begin
-        $display("Time | clk resetn tvalid tready tdata");
-        $monitor("%4dns |  %b    %b      %b      %b     %d", 
-                  $time, clk, resetn, tvalid, tready, tdata);
+        $display(" clk resetn tvalid tready tdata");
+        $monitor(" %b    %b      %b      %b     %d", clk, resetn, tvalid, tready, tdata);
     end
 
 endmodule
