@@ -8,17 +8,15 @@ module Top (
     output wire       tready
 );
 
-    // Master instance
-    Master master_inst (
+    Master master (
         .clk(clk),
         .resetn(resetn),
         .tdata(tdata),
         .tvalid(tvalid),
         .tready(tready)
     );
-
-    // Slave instance
-    Slave slave_inst (
+    
+    Slave slave (
         .clk(clk),
         .resetn(resetn),
         .tdata(tdata),
