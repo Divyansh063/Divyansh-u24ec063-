@@ -1,9 +1,7 @@
 `timescale 1ns / 1ps
 
 module Master #
-(
-    parameter DATA_WIDTH = 8
-)
+    ( parameter DATA_WIDTH = 8 ) 
 (
     input  wire                   clk,
     input  wire                   resetn,   // active-low reset
@@ -22,12 +20,10 @@ module Master #
         end
         else begin
             if (!tvalid) begin
-                // Send first data
                 tdata  <= counter;
                 tvalid <= 1;
             end
             else if (tvalid && tready) begin
-                // Handshake done, send next data
                 counter <= counter + 1;
                 tdata   <= counter + 1;
                 tvalid  <= 1;
