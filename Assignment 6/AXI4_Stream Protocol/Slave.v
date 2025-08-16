@@ -1,9 +1,7 @@
 `timescale 1ns / 1ps
 
 module Slave #
-(
-    parameter DATA_WIDTH = 8
-)
+    ( parameter DATA_WIDTH = 8)
 (
     input  wire                   clk,
     input  wire                   resetn,   // active-low reset
@@ -17,7 +15,6 @@ module Slave #
             tready <= 0;
         end
         else begin
-            // Always ready to receive
             tready <= 1;
 
             if (tvalid && tready) begin
